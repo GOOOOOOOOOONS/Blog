@@ -1,0 +1,142 @@
+﻿@model IPagedList<mBlog.Models.Kategori>
+@using PagedList
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<!-- START Block: Orders -->
+            <div class="row">
+                <div class="block-heading">
+                    <div class="main-text h2 col-md-12">
+                             Kategori List 
+                             
+                             <a href="#" role="button" style="float:right" class="btn btn-warning btnCreate">Create</a>
+                            
+                        
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="block-content-outer">
+                        <div class="block-content-inner">
+                            <div class="table-responsive">
+                                <form role="form">
+                                    <table class="table table-condensed table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center col-xs-4">Kategori Adi</th>
+
+                                                <th class="text-right col-xs-4">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td class="text-center">
+                                                        @Html.DisplayFor(modelItem => item.KategoriAdi)
+                                                    </td>
+
+                                                    <td class="text-right">
+                                                        <a href="#" class="btn btn-primary btnEdit"  data-value="@item.KategoriId">Edit</a>
+                                                        <a href="#" class="btn btn-success btnDetails" data-value="@item.KategoriId">Details</a>
+                                                        <a href="#" class="btn btn-danger btnDelete" data-value="@item.KategoriId">Delete</a>                                                         
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+
+                                </form>
+
+                               
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 text-center">
+                                    <div class="pagedList pagination-lg">
+                                        @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }), PagedListRenderOptions.Classic)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Block: Orders -->
+            </div>
+       
+
+
+
+
+
+@section body{   
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div id="conteudoModal">
+               
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!--Create Modal-->
+
+}
+
+
+
+@section scripts{
+    <script src="../../Assets/js/jquery-1.11.2.min.js"></script>
+   
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".btnDetails").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/AdminKategoris/Details/" + id,
+                    function () {
+                        $("#myModal").modal("show");
+
+                    });
+            });
+
+            $(".btnCreate").click(function () {
+                $("#conteudoModal").load("/AdminKategoris/Create/",
+                    function () {
+                        $("#myModal").modal("show");
+
+                    });
+            });
+
+            $(".btnEdit").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/AdminKategoris/Edit/" + id,
+                    function () {
+                        $("#myModal").modal("show");
+
+                    });
+            });
+
+            $(".btnDelete").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/AdminKategoris/Delete/" + id,
+                    function () {
+                        $("#myModal").modal("show");
+
+                    });
+            });
+        });
+    </script>
+
+}
+
+
+<hr/>
+

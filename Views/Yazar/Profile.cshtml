@@ -1,0 +1,49 @@
+﻿
+@model mBlog.Models.Yazar
+
+@{
+    ViewBag.Title = "Profil";
+    Layout = "~/Views/Shared/_Main.cshtml";
+
+}
+<div class="post-author-container clearfix col-md-8">
+    <center>
+        <div class="comment-content center">
+
+            <div class="comment-author text-center">
+                <a>@Model.YazarAdi @Model.YazarSoyad</a>
+            </div>
+
+            <p>@Model.YazarAciklama</p>
+
+        </div>
+    </center>
+  
+    <center>
+        <div class="col-md-12 tags pr-50-min-1169 pb-20">
+            <a href="/Yazar/Detay/@Model.YazarId" class="blog-more">Makalelerine Git</a>
+           
+                
+                @if (Convert.ToInt32(Session["AuthorisationID"]) == 1 || Convert.ToInt32(Session["AuthorisationID"]) == 2)
+                {
+                    <a href="/Admin/Index" class="blog-mor btnEdit" >Admin Paneli</a>
+                }
+
+            else
+            {
+                <a href="" class="blog-more">Mesaj At</a>
+            }
+            
+        </div>
+    </center>
+
+
+        <div class="col-md-8 footer-2-soc-a right">
+            <a href="@Model.YazarFace"  title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="@Model.YazarInstagram" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="@Model.YazarLinked" title="LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="@Model.YazarGithub" title="Github" target="_blank"><i class="fa fa-github"></i></a>
+        </div>
+    </div>
+
+

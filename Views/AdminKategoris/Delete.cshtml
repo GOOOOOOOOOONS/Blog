@@ -1,0 +1,41 @@
+﻿@model mBlog.Models.Kategori
+
+@{
+    ViewBag.Title = "Delete";
+    Layout =null;
+}
+
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    
+    <h4 class="modal-title" id="small-modal-label">Kategori Details</h4>
+</div>
+<div class="modal-body">   
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KategoriAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KategoriAdi)
+        </dd>
+
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="modal-footer">
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    </div>
+</div>
+}

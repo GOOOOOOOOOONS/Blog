@@ -1,0 +1,116 @@
+﻿@model mBlog.Models.Yazar
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="small-modal-label">Yazar Details</h4>
+</div>
+    <div class="modal-body">
+
+        <dl class="dl-horizontal">   
+            <dt>
+                @Html.DisplayNameFor(model => model.YazarAdi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YazarAdi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YazarSoyad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YazarSoyad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YazarKullaniciAdi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YazarKullaniciAdi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YazarSifre)
+            </dt>
+
+            
+               @if (Model.YazarId == Convert.ToInt32(Session["WriterID"]))
+                {
+                    <dd >@Model.YazarSifre</dd>
+                }
+
+          
+                else
+                {
+                    <dd >Şifreyi Göremezsin</dd>
+                }
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YazarMailAdres)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YazarMailAdres)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YazarAciklama)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YazarAciklama)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YazarFace)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YazarFace)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YazarInstagram)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YazarInstagram)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YazarLinked)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YazarLinked)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YazarGithub)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YazarGithub)
+            </dd>
+           
+
+        </dl>
+    </div>
+
+
+<div class="modal-footer">
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+        </div>
+    </div>
+</div>

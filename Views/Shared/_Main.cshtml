@@ -1,0 +1,395 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset=utf-8>
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="HTML5 Template">
+    <meta name="description" content="Haswell - Responsive HTML5 Template">
+    <meta name="author" content="Vladimir Azarushkin">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS -->
+    <!-- FLEXSLIDER SLIDER CSS -->
+    <link href="../../Assets/css/flexslider.css" rel="stylesheet" />
+
+    <!-- BOOTSTRAP -->
+    <link href="../../Assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- GOOGLE FONT -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700%7COpen+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- ICONS ELEGANT FONT & FONT AWESOME & LINEA ICONS -->
+    <link href="../../Assets/css/icons-fonts.css" rel="stylesheet" />
+
+    <!-- CSS THEME -->
+    <link href="../../Assets/css/style.css" rel="stylesheet" />
+    <!-- ANIMATE -->
+    <link href="../../Assets/css/animate.min.css" rel="stylesheet" />
+
+    <!-- IE Warning CSS -->
+    <!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/ie-warning.css" ><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/ie8-fix.css" ><![endif]-->
+    <!-- Magnific popup  in style.css	Owl Carousel Assets in style.css -->
+    <!-- CSS end -->
+    <!-- JS begin some js files in bottom of file-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Modernizr -->
+    <!-- <script src="js/modernizr.js"></script> -->
+    @RenderSection("head",false)
+</head>
+<body>
+    <div id="wrap" class="boxed ">
+        <div class="grey-bg">
+            <!-- Grey BG  -->
+            <!--[if lte IE 8]>
+        <div id="ie-container">
+            <div id="ie-cont-close">
+                <a href='#' onclick='javascript&#058;this.parentNode.parentNode.style.display="none"; return false;'><img src='images/ie-warn/ie-warning-close.jpg' style='border: none;' alt='Close'></a>
+            </div>
+            <div id="ie-cont-content" >
+                <div id="ie-cont-warning">
+                    <img src='images/ie-warn/ie-warning.jpg' alt='Warning!'>
+                </div>
+                <div id="ie-cont-text" >
+                    <div id="ie-text-bold">
+                        You are using an outdated browser
+                    </div>
+                    <div id="ie-text">
+                        For a better experience using this site, please upgrade to a modern web browser.
+                    </div>
+                </div>
+                <div id="ie-cont-brows" >
+                    <a href='http://www.firefox.com' target='_blank'><img src='images/ie-warn/ie-warning-firefox.jpg' alt='Download Firefox'></a>
+                    <a href='http://www.opera.com/download/' target='_blank'><img src='images/ie-warn/ie-warning-opera.jpg' alt='Download Opera'></a>
+                    <a href='http://www.apple.com/safari/download/' target='_blank'><img src='images/ie-warn/ie-warning-safari.jpg' alt='Download Safari'></a>
+                    <a href='http://www.google.com/chrome' target='_blank'><img src='images/ie-warn/ie-warning-chrome.jpg' alt='Download Google Chrome'></a>
+                </div>
+            </div>
+        </div>
+        <![endif]-->
+            <!-- GREY DARK BG -->
+
+            <div id="wrap" class="boxed ">
+                <div class="grey-bg">
+                    <!-- Grey BG  -->
+                    <!--[if lte IE 8]>
+                <div id="ie-container">
+                    <div id="ie-cont-close">
+                        <a href='#' onclick='javascript&#058;this.parentNode.parentNode.style.display="none"; return false;'><img src='images/ie-warn/ie-warning-close.jpg' style='border: none;' alt='Close'></a>
+                    </div>
+                    <div id="ie-cont-content" >
+                        <div id="ie-cont-warning">
+                            <img src='images/ie-warn/ie-warning.jpg' alt='Warning!'>
+                        </div>
+                        <div id="ie-cont-text" >
+                            <div id="ie-text-bold">
+                                You are using an outdated browser
+                            </div>
+                            <div id="ie-text">
+                                For a better experience using this site, please upgrade to a modern web browser.
+                            </div>
+                        </div>
+                        <div id="ie-cont-brows" >
+                            <a href='http://www.firefox.com' target='_blank'><img src='images/ie-warn/ie-warning-firefox.jpg' alt='Download Firefox'></a>
+                            <a href='http://www.opera.com/download/' target='_blank'><img src='images/ie-warn/ie-warning-opera.jpg' alt='Download Opera'></a>
+                            <a href='http://www.apple.com/safari/download/' target='_blank'><img src='images/ie-warn/ie-warning-safari.jpg' alt='Download Safari'></a>
+                            <a href='http://www.google.com/chrome' target='_blank'><img src='images/ie-warn/ie-warning-chrome.jpg' alt='Download Google Chrome'></a>
+                        </div>
+                    </div>
+                </div>
+                <![endif]-->
+                    <!-- GREY DARK BG -->
+                    <div class="grey-dark-bg">
+
+                        <!-- HEADER 1 BLACK NO-TRANSPARENT -->
+                        <header id="nav" class="header header-1 black-header no-transparent mobile-no-transparent">
+
+                            <div class="header-wrapper grey-dark-bg">
+                                <div class="container-m-30 clearfix">
+                                    <div class="logo-row">
+
+                                        <!-- LOGO -->
+                                        <div class="logo-container-2">
+                                            <div class="logo-2">
+                                                <a href="/Home/Index" class="clearfix">
+                                                    <img src="~/Assets/images/logo-white.png" class="logo-img" alt="Logo">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- BUTTON -->
+                                        <div class="menu-btn-respons-container">
+                                            <button type="button" class="navbar-toggle btn-navbar collapsed" data-toggle="collapse" data-target="#main-menu .navbar-collapse">
+                                                <span aria-hidden="true" class="icon_menu hamb-mob-icon"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- MAIN MENU CONTAINER -->
+                                <div class="main-menu-container">
+
+                                    <div class="container-m-30 clearfix">
+
+                                        <!-- MAIN MENU -->
+                                        <div id="main-menu">
+                                            <div class="navbar navbar-default" role="navigation">
+
+                                                <!-- MAIN MENU LIST -->
+                                                <nav class="collapse collapsing navbar-collapse right-1024">
+                                                    <ul class="nav navbar-nav">
+
+                                                        <!-- MENU ITEM -->
+                                                        <li class="parent current">
+                                                            <a href="/Home/Index"><div class="main-menu-title">Home</div></a>
+                                                        </li>
+                                                        <!-- MENU ITEM -->
+                                                        <li class="parent">
+                                                            <a href="/Home/WebProgramming"><div class="main-menu-title">Web Programming</div></a>
+                                                            <ul class="sub">
+                                                                <li><a href="/Kategori/Index/32">HTML5&HTML</a></li>
+                                                                <li><a href="/Kategori/Index/33">CSS3&CSS</a></li>
+                                                                <li><a href="/Kategori/Index/34">JavaScript</a></li>
+                                                                <li><a href="/Kategori/Index/35">JQuery</a></li>
+                                                                <li><a href="/Kategori/Index/36">PHP</a></li>
+                                                                <li><a href="/Kategori/Index/37">ASP.NET</a></li>
+                                                                <li><a href="/Kategori/Index/38">Node.JS</a></li>
+                                                                <li><a href="/Kategori/Index/39">Pyhton</a></li>
+
+                                                            </ul>
+                                                        </li>
+
+                                                        <!-- MENU ITEM -->
+                                                        <li class="parent">
+                                                            <a href="/Home/WindowsProgramming"><div class="main-menu-title">Windows Programming</div></a>
+                                                            <ul class="sub">
+                                                                <li><a href="/Kategori/Index/45">C#</a></li>
+                                                                <li><a href="/Kategori/Index/46">C++</a></li>
+                                                                <li><a href="/Kategori/Index/47">C</a></li>
+                                                                <li><a href="/Kategori/Index/48">JAVA</a></li>
+                                                            </ul>
+                                                        </li>
+
+                                                        <!-- MENU ITEM -->
+                                                        <li class="parent">
+                                                            <a href="#"><div class="/Home/MobilProgramming">Mobil Programming</div></a>
+                                                            <ul class="sub">
+                                                                <li><a href="/Kategori/Index/31">JAVA</a></li>
+                                                                <li><a href="/Kategori/Index/40">Android Studio</a></li>
+                                                                <li><a href="/Kategori/Index/41">Xamarin</a></li>
+                                                                <li><a href="/Kategori/Index/42">Unity</a></li>
+                                                                <li><a href="/Kategori/Index/43">Unreal Engine</a></li>
+                                                            </ul>
+                                                        </li>
+
+                                                        <!-- MENU ITEM -->
+                                                        <li class="parent">
+                                                            <a href="#"><div class="/Home/AboutUs">About Us</div></a>
+                                                        </li>
+
+                                                        <!-- MENU ITEM -->
+                                                        <li class="parent">
+                                                            <a href="#"><div class="/Home/Projects">Projects</div></a>
+                                                            <ul class="sub">
+                                                                <li><a href="/Home/Projects/1">Windows Form Project</a></li>
+                                                                <li><a href="/Home/Projects/2">Windows Console Project</a></li>
+                                                                <li><a href="/Home/Projects/3">Mobil Project</a></li>
+                                                                <li><a href="/Home/Projects/4">Mobil Game Project</a></li>
+                                                                <li><a href="/Home/Projects/5">Web Site Project</a></li>
+                                                                <li><a href="/Home/Projects/6">Web Service Project</a></li>
+                                                            </ul>
+                                                        </li>
+
+
+
+
+                                                        <!-- MENU ITEM -->
+                                                        <li id="menu-contact-info-big" class="parent megamenu">
+                                                            <a href="/Home/Contact"><div class="main-menu-title">CONTACT</div></a>                                                           
+                                                        </li>
+
+                                                        <!-- MENU ITEM -->
+                                                        @{
+                                                            if (Session["WriterID"] != null)
+                                                            {
+                                                                if (Convert.ToInt32(Session["AuthorisationID"]) == 1)
+                                                                {
+                                                                <li class="parent">
+                                                                    <a href="/Yazar/Profile/"><div class="main-menu-title">@Session["WriterName"].ToString()</div></a>
+                                                                    <ul class="sub">
+                                                                        <li><a href="@Url.Action("Index", "Admin")">YöneticiPaneli</a></li>                                                                                                                                               
+                                                                        <li><a href="/Yazar/Profile/@Session["WriterID"]">Yazar Profil</a></li>
+                                                                        <li><a href="/Yazar/Logout">Çıkış</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                                }
+
+                                                                else
+                                                                {
+                                                                <li class="parent">
+                                                                    <a href="/Yazar/Profile/"><div class="main-menu-title">@Session["WriterName"].ToString()</div></a>
+                                                                    <ul class="sub">
+                                                                        <li><a href="@Url.Action("Index", "Admin")">AdminPaneli</a></li>
+                                                                        <li><a href="/Yazar/Profile/@Session["WriterID"]">Profil</a></li>
+                                                                        <li><a href="/Yazar/Logout">Çıkış</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                                }
+
+                                                            }
+                                                        }
+                                                      
+
+                                                
+                                                        </nav>
+
+                                            </div>
+                                        </div>
+                                        <!-- END main-menu -->
+
+                                    </div>
+                                    <!-- END container-m-30 -->
+
+                                </div>
+                            </div>
+
+                            </header>
+                    </div>
+                                <!-- END grey-dark-bg -->
+
+                               
+                                    
+                                <!-- COTENT CONTAINER -->
+                                <div class="container p-140-cont">
+                                    <div class="row">
+
+                                        <!-- CONTENT -->
+                                        
+
+                                            <!-- Post Item -->
+                                            @RenderBody()
+
+
+                                       
+                                        <!-- SIDEBAR -->
+                                        <div class="col-sm-4 col-md-3 col-md-offset-1">
+
+                                            <!-- SEARCH -->
+                                           
+                                            @{Html.RenderPartial("_Arama"); }
+                                           
+                                            <!-- ADWORDS -->
+                                            @{Html.RenderPartial("_SiteHakkinda");}
+
+                                            <!-- WIDGET CATEGORIES-->
+                                           @{Html.RenderAction("KategoriWidget", "Kategori");}      
+
+                                            <!-- WIDGET RECENT POSTS -->
+                                            @{Html.RenderAction("PopulerMakalelerWidget", "Home");}
+
+                                            <!-- WIDGET Top POSTS -->
+                                            @{Html.RenderAction("LikeMakalelerWidget", "Home");}
+                                           
+                                            <!--Widget New Posts-->                                           
+                                            @{Html.RenderAction("NewMakaleler", "Home");}
+                                            <!-- WIDGET Last Comments -->
+                                            
+                                            
+                                            
+                                            <!-- WIDGET Tags  -->
+                                           @{Html.RenderAction("EtiketlerWidget", "Etiket");}
+
+                                        </div>
+                                    </div>
+
+                                  
+                                <!--Footer-->
+
+                                    <footer>
+
+                                        <div class="footer-2-copy-cont clearfix">
+                                            <!-- Social Links -->
+                                           
+                                            <div class="footer-2-soc-a right">
+                                                <a href="" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                                                <a href="" title="Twitter" target="_blank"><i class="fa fa-instagram"></i></a>
+
+                                            </div>
+
+                                            <!-- Copyright -->
+                                            <div class="left">
+                                                <a class="footer-2-copy" href="#" target="_blank"></a>
+                                            </div>
+
+                                        </div>
+
+                                    </footer>
+
+                                    <!-- BACK TO TOP -->
+                                    <p id="back-top">
+                                        <a href="#top" title="Back to Top"><span class="icon icon-arrows-up"></span></a>
+                                    </p>
+
+
+                                 
+
+
+
+                                    @RenderSection("body", false)
+                                    <!-- /#wrapper -->
+                                    <!-- jQuery -->
+
+                                    @RenderSection("scripts", false)
+                            </div><!-- End BG -->
+                    </div><!-- End wrap -->
+                    <!-- JS begin -->
+                    <!-- jQuery  -->
+                         <script src="~/Assets/js/jquery-1.11.2.min.js"></script>                    
+                    <!-- Include all compiled plugins (below), or include individual files as needed -->
+                         <script src="~/Assets/js/bootstrap.min.js"></script>
+                    
+                    <!-- MAGNIFIC POPUP -->
+                         
+                        <script src="~/Assets/js/jquery.magnific-popup.min.js"></script>
+
+                    <!-- PORTFOLIO SCRIPTS -->
+
+                        <script src="~/Assets/js/imagesloaded.pkgd.min.js"></script>
+
+                    <!-- COUNTER -->
+
+                        <script src="~/Assets/js/jquery.countTo.js"></script>
+
+                    <!-- APPEAR -->
+                    
+                        <script src="~/Assets/js/jquery.appear.js"></script>
+
+                    <!-- OWL CAROUSEL -->
+
+                        <script src="~/Assets/js/owl.carousel.min.js"></script>
+
+                    <!-- MAIN SCRIPT -->
+
+                         <script src="~/Assets/js/main.js"></script>
+
+                    <!-- FLEX SLIDER SCRIPTS  -->
+
+                        <script src="~/Assets/js/jquery.flexslider-min.js"></script>
+
+                         <script src="~/Assets/js/flex-slider.js"></script>
+
+                    <!-- JS end -->
+
+
+            </div>
+            </div>
+     </div>       
+        </body>
+</html>		

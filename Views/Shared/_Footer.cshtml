@@ -1,0 +1,30 @@
+﻿@model IPagedList<mBlog.Models.Footer>
+@using PagedList
+@using PagedList.Mvc
+     
+            
+    <footer>
+@foreach (mBlog.Models.Footer ft in Model)
+{
+        <div class="footer-2-copy-cont clearfix">
+            <!-- Social Links -->
+            <div class="footer-2-soc-a right">
+                <a href="@ft.FooterFacebook" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="@ft.FooterInstagram" title="Twitter" target="_blank"><i class="fa fa-instagram"></i></a>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="left">
+                <a class="footer-2-copy" href="#" target="_blank">@ft.FooterAciklama</a>
+            </div>
+
+        </div>
+}
+    </footer>
+
+<!-- BACK TO TOP -->
+<p id="back-top">
+    <a href="#top" title="Back to Top"><span class="icon icon-arrows-up"></span></a>
+</p>
+

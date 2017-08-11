@@ -1,0 +1,29 @@
+﻿@model mBlog.Models.Makale
+<script src="~/Assets/js/jquery-1.11.2.min.js"></script>
+
+<script>
+    $(document).ready(function myfunction() {
+        $("a.prev").click(function myfunction() {
+            var id = $(this).data("id");
+            var link = "/Makale/Prev/" + id;
+            $.ajax({
+                type: "GET",
+                url: link,
+                success: function (result) {
+                    alert(result);
+                }
+
+            });
+
+        });
+
+    });
+</script>
+
+
+
+<div class="work-navigation clearfix">
+    <a href="javascript:void(0)" class="work-prev prev" data-id="@Model.MakaleId"><span><span class="icon icon-arrows-left"></span>&nbsp;Prev</span></a>
+    <a href="/Home/Index" class="work-all"><span>All Posts</span></a>
+    <a href="javascript:void(0)" class="work-next next" data-id="@Model.MakaleId"><span>Next&nbsp;<span class="icon icon-arrows-right"></span></span></a>
+</div>

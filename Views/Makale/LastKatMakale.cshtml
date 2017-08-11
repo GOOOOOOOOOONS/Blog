@@ -1,0 +1,29 @@
+﻿@model IEnumerable<mBlog.Models.Makale>
+<h4 class="blog-page-title mt-50 mb-25">RELATED POSTS</h4>
+
+<div class="row related-posts">
+
+    <!-- Post Item 1 -->
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-md-4 col-lg-4 wow fadeIn pb-50" style="visibility: visible; animation-name: fadeIn;">
+
+            <div class="post-prev-img">
+                <a href="/Makale/Detay/@item.MakaleId"><img src="@item.MakaleResim" width="230" height="147" alt="img"></a>
+            </div>
+
+            <div class="post-prev-title">
+                <h3><a href="/Makale/Detay/@item.MakaleId">@item.MakaleBaslik</a></h3>
+            </div>
+
+            <div class="post-prev-info">
+                @item.MakaleEklenmeTarihi.ToShortDateString()<span class="slash-divider">/</span><a href="/Yazar/Index/@item.YazarID">@item.Yazar.YazarAdi @item.Yazar.YazarSoyad</a>
+            </div>
+
+        </div>
+    }
+   
+
+  
+
+</div>

@@ -1,0 +1,158 @@
+﻿@model IPagedList<mBlog.Models.Makale>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+      
+
+
+<!-- START Block: Orders -->
+<div class="row">
+    <div class="block-heading">
+        <div class="main-text h2 col-md-12">
+            Makales
+            <a href="#" role="button" class="btn btn-warning btnCreate" style="float:right">Create</a>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="block-content-outer">
+            <div class="block-content-inner">
+                <div class="table-responsive">
+                    <form role="form">
+                        <table class="table table-condensed table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center col-xs-1">Kategori</th>
+                                    <th class=" text-center col-xs-1">Yazar Ad Soyad</th>
+                                    <th class="col-xs-1 text-center">Yazar Yetki</th>
+                                    <th class="text-center col-xs-2">Makale Başlık</th>
+                                    <th class="col-xs-2 text-center">Resim</th>
+                                    <th class="col-xs-1 text-center">Eklenme Tarihi</th>
+                                    <th class="text-right col-xs-3">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (mBlog.Models.Makale item in Model)
+                                {
+                                    <tr>
+                                        <td class="text-center">@item.Kategori.KategoriAdi</td>
+                                        <td class="text-center">@item.Yazar.YazarAdi @item.Yazar.YazarSoyad</td>
+                                        <td class="text-center">
+                                           
+                                            @if (item.Yazar.YetkiID == 1)
+                                            {
+                                                <span class="label label-success text-center">Admin</span>
+                                            }
+
+                                            else
+                                            {
+                                                <span class="label label-danger text-center">Yazar</span>
+                                            }
+
+                                        </td>
+                                        <td class="text-center">@item.MakaleBaslik</td>
+                                        <td class="text-center"><img src="@item.MakaleResim" alt="alterna resim" width="250" height="75" /></td>
+                                        <td class="text-center">@item.MakaleEklenmeTarihi.ToShortDateString()</td>
+                                        <td class="text-right">                                           
+                                            <a href="#" class="btn btn-primary btnEdit" data-value="@item.MakaleId">Edit</a> |
+                                            <a href="#" class="btn btn-success btnDetails" data-value="@item.MakaleId">Details</a> |
+                                            <a href="#" class="btn btn-danger btnDelete" data-value="@item.MakaleId">Delete</a>
+                                        </td>
+
+                                    </tr>
+                                }
+
+
+                            </tbody>
+
+
+
+                        </table>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 text-center">
+                <div class="pagedList pagination-lg">
+                    @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }), PagedListRenderOptions.Classic)
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Block: Orders -->
+ </div>
+
+
+@section body{
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div id="conteudoModal">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+
+
+
+
+@section scripts{
+    <script src="../../Assets/js/jquery-1.11.2.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".btnDetails").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/AdminMakales/Details/" + id,
+                    function () {
+                        $("#myModal").modal("show");
+
+                    });
+            });
+
+            $(".btnEdit").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/AdminMakales/Edit/" + id,
+                    function () {
+                        $("#myModal").modal("show");
+
+                    });
+            });
+
+            $(".btnDelete").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/AdminMakales/Delete/" + id,
+                    function () {
+                        $("#myModal").modal("show");
+
+                    });
+            });
+
+            $(".btnCreate").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/AdminMakales/Create/" + id,
+                    function () {
+                        $("#myModal").modal("show");
+
+                    });
+            });
+
+        });
+    </script>
+
+}

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "LoginPage";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+<div id="container">
+    <h1>Log In</h1>
+    <span class="close-btn">
+        <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"/>
+    </span>
+
+    <form action="/Yazar/Login" method="post">
+        <input type="text" name="YazarKullaniciAdi" id="YazarKullaniciAdi" placeholder="KullaniciAdi" required="">
+        <input type="password" name="YazarSifre" id="YazarSifre" placeholder="Password" required="">
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" name="login" value="Giriş Yap" class="Log" id="btn btn-default" />
+            </div>
+        </div>
+
+    </form>
+
+
+
+
+</div>

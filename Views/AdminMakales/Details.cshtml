@@ -1,0 +1,105 @@
+﻿@model mBlog.Models.Makale
+
+@{
+    ViewBag.Title = "Details";
+    Layout =null;
+}
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="small-modal-label">Makale Details</h4>
+</div>
+<div class="modal-body">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategori.KategoriAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategori.KategoriAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Yazar.YazarAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yazar.YazarAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakaleBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakaleBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakaleIcerik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakaleIcerik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakaleEklenmeTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakaleEklenmeTarihi)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.MakaleResim)
+        </dt>
+        
+        <dd>
+            <img src = "@Model.MakaleResim" alt = "alterna resim" width = "350" height = "200" />
+        </dd>
+
+        <br />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Video)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Video)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakaleDokuman)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakaleDokuman)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoruntulenmeSayisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoruntulenmeSayisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Begeni)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Begeni)
+        </dd>
+
+    </dl>
+
+</div>
+<div class="modal-footer">
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+        </div>
+    </div>
+</div>

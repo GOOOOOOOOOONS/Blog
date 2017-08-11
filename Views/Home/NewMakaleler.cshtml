@@ -1,0 +1,23 @@
+﻿@model IEnumerable<mBlog.Models.Makale>
+
+<div class="widget">
+    <h5 class="widget-title">En Az Okunan</h5>
+
+    <div class="widget-body">
+        <ul class="clearlist widget-posts">
+            @foreach (mBlog.Models.Makale makale in Model)
+            {
+                <li class="clearfix">
+                    <a href=""><img src="@makale.MakaleResim" alt="" width="70" height="60" class="widget-posts-img"></a>
+                    <div class="widget-posts-descr">
+                        <a href="/Makale/Detay/@makale.MakaleId" title="">@makale.MakaleBaslik</a>
+                        <div>@makale.MakaleEklenmeTarihi.ToShortDateString()<span class="slash-divider">/</span>@makale.Yazar.YazarAdi @makale.Yazar.YazarSoyad</div>
+                    </div>
+                </li>
+            }
+
+
+        </ul>
+    </div>
+
+</div>

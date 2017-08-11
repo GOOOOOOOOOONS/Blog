@@ -1,0 +1,21 @@
+﻿
+@model IEnumerable<mBlog.Models.Kategori>
+
+<div class="widget">
+
+    <h5 class="widget-title">Kategoriler</h5>
+
+    <div class="widget-body">
+        <ul class="clearlist widget-menu">
+            @foreach (mBlog.Models.Kategori kategori in Model)
+            {
+                <li>
+                    <a href="/Kategori/Index/@kategori.KategoriId" title="">@kategori.KategoriAdi</a><small><span class="slash-divider">/</span> {@kategori.Makales.Count}</small>
+                </li>
+            }
+
+
+        </ul>
+    </div>
+
+</div>

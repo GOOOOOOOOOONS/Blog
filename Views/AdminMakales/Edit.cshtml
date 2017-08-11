@@ -1,0 +1,91 @@
+﻿@model mBlog.Models.Makale
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = null;
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="small-modal-label">Makale Edit</h4>
+</div>
+<div class="modal-body">
+
+
+    @using (Html.BeginForm("Edit", "AdminMakales", FormMethod.Post, new{enctype ="multipart/form-data"}))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.KategoriID, "KategoriID", htmlAttributes:new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("KategoriID", null, htmlAttributes: new{@class= "form-control"})
+                    @Html.ValidationMessageFor(model => model.KategoriID, "", new{@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MakaleBaslik, htmlAttributes: new{@class = "control-label col-md-2"})
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MakaleBaslik, new{htmlAttributes =new { @class = "form-control" }})
+                    @Html.ValidationMessageFor(model => model.MakaleBaslik, "", new{@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MakaleIcerik, htmlAttributes: new{@class = "control-label col-md-2"})
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MakaleIcerik, new{htmlAttributes =new { @class = "form-control" }})
+                    @Html.ValidationMessageFor(model => model.MakaleIcerik, "", new{@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Eski Resim", htmlAttributes: new{@class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <img src="@Model.MakaleResim" alt="alterna resim" width="350" height="200" />
+                    @Html.ValidationMessageFor(model => model.MakaleResim, "", new{@class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.MakaleResim, htmlAttributes: new{@class= "control-label col-md-2"})
+                <div class="col-md-10">
+                    <input type="file" name="Foto" id="Foto" value=""
+                           accept=".jpg,.png,.giif,.JPEG,.jpeg" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.MakaleResim, "", new{@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MakaleDokuman, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MakaleDokuman, new { htmlAttributes = new { @class = "form-control"} })
+                    @Html.ValidationMessageFor(model => model.MakaleDokuman, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Video, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Video, new { htmlAttributes = new { @class = "form-control"} })
+                    @Html.ValidationMessageFor(model => model.Video, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

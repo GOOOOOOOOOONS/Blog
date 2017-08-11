@@ -1,0 +1,271 @@
+﻿
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+@model mBlog.Models.Makale
+
+<style>
+    #bgres{
+        background:url(@Model.MakaleResim);
+        fixed #2c2c2c;
+    will-change: background-position;
+    }
+</style>
+
+<div class="col-sm-8 blog-main-posts">
+    <input type="hidden" id="katid" value="@Model.KategoriID" />
+    <!-- POST ITEM -->
+    <div class="blog-post wow fadeIn pb-50" style="visibility: visible; animation-name: fadeIn;">
+        <div class="post-prev-img">
+            <span class="video-ads-a">
+                <a class="popup-youtube " href="@Model.Video"><img src="@Model.MakaleResim" alt="img"></a>
+                               
+            </span>
+               
+          </div>
+        
+        <div class="post-prev-title">
+            <h3><a href="">@Model.MakaleBaslik</a></h3>
+        </div>
+
+
+      
+
+
+        <div class="post-prev-info">
+            @Model.MakaleEklenmeTarihi.ToShortDateString()<span class="slash-divider">/</span><a href="/Yazar/Profile/@Model.YazarID">@Model.Yazar.YazarAdi @Model.Yazar.YazarSoyad</a><span class="slash-divider">/</span><a href="/Kategori/Index/@Model.KategoriID">@Model.Kategori.KategoriAdi</a>
+        </div>
+        <p>@Model.MakaleIcerik</p>
+        <!--Cok Resimli-->
+        @*<div class="post-prev-text">
+            <p>@Model.MakaleIcerik</p>
+       
+         
+            <div class="post-prev-img">
+                <a href=""><img src="@Model.MakaleResim" alt="img"></a>
+            </div>
+        
+            <p>@Model.MakaleIcerik</p>
+
+            <pre class="mt-30 mb-30">İçerik</pre>
+
+        </div>*@
+        <!--Cok Resimli-->
+
+        
+        <!--MakaleEtiketleri Ve Sağ İcon-->
+
+       @{ Html.RenderPartial("_EtiketAndIcon");}
+
+        <!--MakaleEtiketleri Ve Sağ İcon-->
+
+    </div>
+
+    <!-- Yazar Hakkında Kısa Bilgi -->
+    @{ Html.RenderPartial("_YazarMakale");}
+    <!-- Yazar Hakkında Kısa Bilgi -->
+    <!-- DIVIDER -->
+    <hr class="mt-0 mb-0">
+
+    <!-- Önceki Sonraki Makale -->
+    @{ Html.RenderPartial("_PreNext");} 
+    <!-- Önceki Sonraki Makale -->
+    <!-- DIVIDER -->
+    <hr class="mt-0 mb-0">
+
+
+    <!-- Yeni Eklenen Makaleler -->
+    @{ Html.RenderAction("LastKatMakale", "Makale");}
+    <!-- Yeni Eklenen Makaleler -->
+    <!-- DIVIDER -->
+    <hr class="mt-0 mb-0">
+
+    <!-- COMMENTS -->
+    <a id="Yorum" />
+    <div id="comments" class="mt-60">
+
+        <h4 class="blog-page-title mb-15">Yorumlar<small><span class="slash-divider">/</span> @Model.Yorums.Count</small></h4>
+
+        <ul class="media-list text comment-list">
+            @foreach (mBlog.Models.Yorum yrm in Model.Yorums)
+            {
+
+            <!-- Comment Item -->
+                <li class="media comment-item">
+
+                    <div class="media-body">
+
+                        <div class="comment-item-title">
+                            <div class="comment-author">
+                                <a href="">@yrm.YorumAdSoyad</a>
+                            </div>
+                            <div class="comment-date">
+                                @yrm.YorumEklenmeTarihi.Value.ToShortDateString()
+                            </div>
+                        </div>
+
+                        <p class="pb-30">@yrm.YorumAciklama</p>
+
+                    </div>
+
+                </li>
+            <!-- End Comment Item -->
+            }
+
+        </ul>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <hr class="mt-30 mb-0">
+
+    <!-- LEAVE A COMMENT	-->
+    <!-- CONTACT FORM -->
+    <div class="grey-light-bg leave-comment-cont">
+        <!-- TITLE -->
+
+        <h4 class="blog-page-title mt-50 mb-25">Yorum Yaz</h4>
+        <div class="contact-form-container">
+            @{
+                if (Session["WriterName"] != null)
+                {
+                    <div class="row">
+                        <div>
+                            <div class="col-md-6 mb-30">
+                                <!-- <label>Your name *</label> -->
+                                <input type="hidden" id="mala" value="@Session["WriterEMail"]">
+                                <input type="hidden" id="nama" value="@Session["WriterName"]">
+                                <input type="hidden" id="ida" value="@Session["WriterId"]">
+
+                            </div>
+                            <div class="col-md-6 mb-30">
+                                <!-- <label>Your email address *</label> -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <div class="col-md-12 mb-40">
+                                <!-- <label>Message *</label> -->
+                                <textarea maxlength="5000" data-msg-required="Please enter your message" rows="3" class="controled" name="yorum" id="yorum" placeholder="MESSAGE" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                else
+                {
+                    <div class="row">
+                        <div>
+                            <div class="col-md-6 mb-30">
+                                <!-- <label>Your name *</label> -->
+                                <input type="text" value="" data-msg-required="Please enter your name" maxlength="100" class="controled" name="name" id="name" placeholder="NAME" required>
+
+                            </div>
+                            <div class="col-md-6 mb-30">
+                                <!-- <label>Your email address *</label> -->
+                                <input type="email" name="mail" value="" data-msg-required="Please enter your email address" data-msg-email="Please enter a valid email address" maxlength="100" class="controled" id="mail" placeholder="EMAIL" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <div class="col-md-12 mb-40">
+                                <!-- <label>Message *</label> -->
+                                <textarea maxlength="5000" data-msg-required="Please enter your message" rows="3" class="controled" name="yorum" id="yorum" placeholder="MESSAGE" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            }
+
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    @*<button type="submit" class="btn btn-primary" id="gonder" name="gonder">submit</button>*@
+                    <input type="submit" value="SEND MESSAGE" class="button medium gray" id="gonder" name="gonder" data-loading-text="Loading...">
+                </div>
+            </div>
+
+
+
+            <script src="../../Assets/js/jquery-1.11.2.min.js"></script>
+
+            <script src="../../Assets/js/bootstrap.min.js"></script>
+
+            <script type="text/javascript">
+
+                        $(document).ready(function ()
+                        {
+
+                            var ids = $('#ida').val();
+
+                            $('#gonder').click(function ()
+                            {
+
+                                if (ids != null) {
+                                    var adsoyad = $('#nama').val();
+                                    var mails = $('#mala').val();
+                                    var yorumunuz = $("#yorum").val()
+                                $.ajax({
+                                 data: { yorum: yorumunuz, name: adsoyad,mail: mails ,makalesid: @Model.MakaleId},
+                                type: "POST",
+                                dataType: "json",
+                                url: "@Url.Action("YorumYap", "Makale")",
+
+                                success: function(data) {
+                                    window.location.replace("/Makale/YorumYap");
+                                                   // window.location.reload();
+                                                },
+                                error: function(result) {
+                                                    alert("hata");
+                                                }
+
+                                        });
+
+                                }
+
+                                else {
+                                    var adsoyad = $('#name').val();
+                                    var mails = $('#mail').val();
+                                    var yorumunuz = $("#yorum").val();
+                                 $.ajax({
+                                data: { yorum: yorumunuz, name: adsoyad,mail: mails ,makalesid: @Model.MakaleId},
+                                type: "POST",
+                                dataType: "json",
+                                url: "@Url.Action("YorumYap","Makale")",
+
+                                success: function(data) {
+                                                    alert("Yorum Gönderildi" + adsoyad);
+                                                    window.location.reload();
+                                                },
+                                error: function(result) {
+                                                    alert("hata");
+                                                }
+
+                                        });
+                                }
+
+
+
+
+
+
+
+
+                            });
+                        })
+
+            </script>
+
+
+        </div>
+
+    </div>
+</div>
+

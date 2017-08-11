@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}   
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Admin Panel Ana Sayfa</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-tasks fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">@ViewBag.MakaleSayisi</div>
+                                <div>Makale Sayisi!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/AdminMakales/Index">
+                        <div class="panel-footer">
+                            
+                                <span class="pull-left" id="makaleyon">Hepsini Gör</span>
+                                <span class="pull-right makaleyon"><i class="fa fa-arrow-circle-right"></i></span>
+                                
+                                <div class="clearfix"></div>
+</div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-user fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">@ViewBag.YazarSayisi</div>
+                                <div>Yazar Sayisi</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/AdminYazars/Index">
+                        <div class="panel-footer">                          
+                                <span class="pull-left">
+                                   Hepsini Gör
+                                </span>
+                                <span class="pull-right">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </span>
+                           
+                    <div class="clearfix"></div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-yellow">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-tags fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">@ViewBag.EtiketSayisi</div>
+                                <div>Etikets Sayisi</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="AdminEtikets/Index/">
+                        <div class="panel-footer">
+                            <span class="pull-left">Hepsini Gör</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-red">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-comment fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">@ViewBag.YorumSayisi</div>
+                                <div>Yorum Sayisi</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/AdminYorums/Index/">
+                        <div class="panel-footer">
+                            <span class="pull-left">Hepsini Gör</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    <!-- /.row -->
+   
+   
+    <!-- /.row -->
+<script src="~/Assets/js/jquery-1.11.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#makaleyon').click(function () {
+            alert("faghasdfg");
+            window.location.href = "/AdminMakales/Index";
+        }
+            });
+</script>

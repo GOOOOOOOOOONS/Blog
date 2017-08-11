@@ -1,0 +1,213 @@
+﻿@model IPagedList<mBlog.Models.Yazar>
+@using PagedList
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+@helper IcerikKisalt(string metin)
+{
+if (metin.Length > 50)
+{
+        <p>@metin.Substring(0, 50)...</p>
+}
+
+else
+{
+        <p>@metin</p>
+}
+}
+
+<!-- START Block: Orders -->
+<div class="row">
+    <div class="block-heading">
+        <div class="main-text h2 col-md-12">
+            Yazarlar
+            @if (Convert.ToInt32(Session["AuthorisationID"]) == 1)
+            {
+                <a href="#" role="button" class="btn btn-warning btnCreate" style="float:right">Create</a>
+            }
+            
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="block-content-outer">
+            <div class="block-content-inner">
+                <div class="table-responsive">
+                    <form role="form">
+                        <table class="table table-condensed table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center col-xs-1">Yetki Adi</th>
+                                    <th class=" text-center col-xs-1">Ad</th>
+                                    <th class=" text-center col-xs-1">Soyad</th>
+                                    <th class="col-xs-1 text-center">Kullanici Adi</th>
+                                    <th class="text-center col-xs-1">Sifre</th>
+                                    <th class="text-center col-xs-1">Mail Adresi</th>
+                                    <th class="col-xs-2 text-center">Aciklama</th>
+                                    <th class="text-center col-xs-1">Eklenme Tarihi</th>
+                                    <th class="text-right col-xs-3">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (mBlog.Models.Yazar item in Model)
+                                {
+                                    <tr>
+                                        <td class="text-center">
+
+                                            @if (item.YetkiID == 1)
+                                            {
+                                                <span class="label label-success text-center">Admin</span>
+                                            }
+                                             else
+                                            {
+                                                <span class="label label-danger text-center">Yazar</span>
+                                            }
+
+                                        </td>
+                                        <td class="text-center">@item.YazarAdi</td>
+                                        <td class="text-center">@item.YazarSoyad</td>                                        
+                                        <td class="text-center">@item.YazarKullaniciAdi</td>
+                                                                                    
+                                        @if (item.YazarId == Convert.ToInt32(Session["WriterID"]))
+                                            {
+                                                <td class="text-center">@item.YazarSifre</td>
+                                            }
+                                        else
+                                        {
+                                            <td class="text-center">Şifreyi Göremezsi</td>
+                                        }
+
+                                        <td class="text-center">@item.YazarMailAdres</td>  
+                                        <td class="text-center">@IcerikKisalt(item.YazarAciklama)</td>  
+
+                                        <td class="text-center">@item.YazarEklenmeTarihi</td>
+                                        <td class="text-right">
+                                            <a href="#" class="btn btn-primary btnEdit" data-value="@item.YazarId">Edit</a> |
+                                            <a href="#" class="btn btn-success btnDetails" data-value="@item.YazarId">Details</a> |
+
+                                            @if (Convert.ToInt32(Session["AuthorisationID"]) != 1)
+                                            {
+                                                if (item.YazarId == Convert.ToInt32(Session["WriterID"]))
+                                                {
+                                                    <a href="#" class="btn btn-danger btnDelete" data-value="@item.YazarId">Delete</a>
+                                                }
+
+
+
+                                            }
+                                            @if (Convert.ToInt32(Session["AuthorisationID"])==1)
+                                            {
+                                                <a href="#" class="btn btn-danger btnDelete" data-value="@item.YazarId">Delete</a>
+                                            }
+                                            
+
+                                           
+                                            
+
+
+
+                                        </td>
+
+                                    </tr>
+                                }
+
+
+                            </tbody>
+
+
+
+                        </table>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 text-center">
+                <div class="pagedList pagination-lg">
+                    @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }), PagedListRenderOptions.Classic)
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Block: Orders -->
+</div>
+
+@section body{
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div id="conteudoModal">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@*<div class="modal fade small-modal" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="small-modal-label" aria-hidden="true">
+
+        <div class="modal-dialog">
+            <div class="modal-content" data-border-top="multi">
+                <div id="conteudoModal">
+
+
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+
+@section scripts{
+    <script src="../../Assets/js/jquery-1.11.2.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".btnDetails").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/AdminYazars/Details/" + id,
+                    function () {
+                        $("#myModal").modal("show");
+
+                    });
+            });
+
+            $(".btnEdit").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/AdminYazars/Edit/" + id,
+                    function () {
+                        $("#myModal").modal("show");
+
+                    });
+            });
+
+            $(".btnDelete").click(function () {
+                var id = $(this).data("value");
+                $("#conteudoModal").load("/AdminYazars/Delete/" + id,
+                    function () {
+                        $("#myModal").modal("show");
+
+                    });
+            });
+
+            $(".btnCreate").click(function () {
+                $("#conteudoModal").load("/AdminYazars/Create/",
+                    function () {
+                        $("#myModal").modal("show");
+
+                    });
+            });
+        });
+    </script>
+
+}

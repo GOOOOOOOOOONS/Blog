@@ -1,0 +1,72 @@
+﻿@model mBlog.Models.Yorum
+
+@{
+    ViewBag.Title = "Delete";
+    Layout =null;
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="small-modal-label">Yorum Delete</h4>
+</div>
+<div class="modal-body">
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Makale.MakaleBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Makale.MakaleBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YorumAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YorumAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YorumEklenmeTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YorumEklenmeTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YorumAdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YorumAdSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YorumMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YorumMail)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="modal-footer">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,319 @@
+﻿  @{
+        if (Session["AuthorisationID"] ==null)
+        {
+            Response.Redirect("~/Home/Index");
+        }
+        if (Convert.ToInt32(Session["AuthorisationID"])!=1 && Convert.ToInt32(Session["AuthorisationID"]) != 2)
+        {
+            Response.Redirect("~/Home/Index");
+        }
+    }
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>@ViewBag.Title</title>
+
+
+    @RenderSection("head",false)
+    <!-- Bootstrap Core CSS -->
+    <link href="../../Assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../../Assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../Assets/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../../Assets/vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../../Assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="../../Assets/js/ui-bootstrap-custom-2.5.0.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Developer For You</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                
+
+                <!-- /User Profil dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="/Yazar/Profile/@Session["WriterID"]"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>                        
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/Yazar/Logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <!-- /Search -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">                      
+                        <li>
+                            <a href="@Url.Action("Index","Admin")"><i class="fa fa-dashboard fa-fw"></i> Anasayfa</a>
+                        </li>
+                            <!--Admin Makale & Kategori & Etiket-->
+                        <li>
+                            <a href="@Url.Action("Index","AdminMakales")"><i class="fa fa-table fa-fw"></i>Posts</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","AdminKategoris")"><i class="fa fa-table fa-fw"></i>Kategori</a>
+                        </li>
+
+                        <li>
+                            <a href="@Url.Action("Index","AdminYorums")"><i class="fa fa-table fa-fw"></i>Yorumlar</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","AdminYazars")"><i class="fa fa-table fa-fw"></i>Yazar</a>
+                        </li>
+                        <!--Admin Makale & Kategori & Etiket-->
+
+                        @if (Convert.ToInt32(Session["AuthorisationID"]) == 1)
+                        {
+
+                         <!--Yazarlar-->
+
+                          
+
+                        <!--Yazarlar-->
+
+                            <!--Yazarlar-->
+
+                            <li>
+                                <a href="@Url.Action("Index","AdminEtikets")"><i class="fa fa-table fa-fw"></i>Etiket</a>
+                            </li>
+
+                        <!--Yazarlar-->
+
+
+                        <!--Analiz-->
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Analiz<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="flot.html">Flot Charts</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Morris.js Charts</a>
+                                </li>
+                            </ul>
+                           
+                        </li>
+                        <!--Analiz-->
+
+
+                     
+
+                       
+                        <!--Helper 1 -2 -->
+
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Tasarım Komutları<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="buttons.html">Buttons</a>
+                                </li>
+                                <li>
+                                    <a href="notifications.html">Notifications</a>
+                                </li>
+                                <li>
+                                    <a href="typography.html">Typography</a>
+                                </li>
+                                <li>
+                                    <a href="icons.html"> Icons</a>
+                                </li>
+                                <li>
+                                    <a href="grid.html">Grid</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                       
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Short Codes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">ANIMATIONS</a>
+                                </li>
+                                <li>
+                                    <a href="#">ACCORDIONS</a>
+                                </li>
+                                <li>
+                                    <a href="#">BUTTONS</a>
+                                </li>
+                                <li>
+                                    <a href="#">CAROULSELS</a>
+                                </li>
+                                <li>
+                                    <a href="#">TOGGLES</a>
+                                </li>
+                                <li>
+                                    <a href="#">TABS</a>
+                                </li>
+                                <li>
+                                    <a href="#">LABELS</a>
+                                </li>
+                                <li>
+                                    <a href="#">TWITTER FEEDS</a>
+                                </li>
+                                <li>
+                                    <a href="#">ICONS</a>
+                                </li>
+                                <li>
+                                    <a href="#">ALERTS</a>
+                                </li>
+                                <li>
+                                    <a href="#">MODALS</a>
+                                </li>
+                                <li>
+                                    <a href="#">PADINATION</a>
+                                </li>
+                                <li>
+                                    <a href="#">LIGHTBOX</a>
+                                </li>
+                                <li>
+                                    <a href="#">COUNTERS & CHARTS</a>
+                                </li>
+                                <li>
+                                    <a href="#">PROGRESS BARS</a>
+                                </li>
+                                <li>
+                                    <a href="#">FLICKR FEEDS</a>
+                                </li>
+                                <li>
+                                    <a href="#">HEADINGS</a>
+                                </li>
+                                <li>
+                                    <a href="#">DROPCAPS</a>
+                                </li>
+                                <li>
+                                    <a href="#">BLOCKQUOTES</a>
+                                </li>
+                                <li>
+                                    <a href="#">TESTIOMNIALS</a>
+                                </li>
+                                <li>
+                                    <a href="#">PRICING TABLES</a>
+                                </li>
+                                <li>
+                                    <a href="#">TIMELINE</a>
+                                </li>
+                                <li>
+                                    <a href="#">TABLES</a>
+                                </li>
+                                <li>
+                                    <a href="#">LISTS</a>
+                                </li>
+                                <li>
+                                    <a href="#">CODE</a>
+                                </li>
+                                <li>
+                                    <a href="#">TOOLTIPS</a>
+                                </li>
+                                <li>
+                                    <a href="#">POPOVER</a>
+                                </li>
+                                <li>
+                                    <a href="#">HIGHLIGHTS</a>
+                                </li>
+                                <li>
+                                    <a href="#">DIVIDERS</a>
+                                </li>
+                                <li>
+                                    <a href="#">MEDIA</a>
+                                </li>
+
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <!--Helper 1 -2 -->
+
+                        }
+
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            @RenderBody()
+
+           
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+
+    @RenderSection("body", false)
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+
+    @RenderSection("scripts", false)
+    <script src="../../Assets/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../Assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../../Assets/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../../Assets/vendor/raphael/raphael.min.js"></script>
+    <script src="../../Assets/vendor/morrisjs/morris.min.js"></script>
+    <script src="../../Assets/data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../../Assets/dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
